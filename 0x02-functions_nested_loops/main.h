@@ -1,0 +1,8 @@
+
+/*
+ *
+ *
+ *
+ */
+
+int _putchar(char);
