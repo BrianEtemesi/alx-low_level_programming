@@ -33,7 +33,7 @@ void puts_half(char *str)
 	{
 		i = i - 1;
 
-		sp = i / 2 + 1;
+		sp = i / 2;
 
 		for (j = sp; j <= i + 1; j++)
 		{
