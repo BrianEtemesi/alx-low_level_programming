@@ -9,7 +9,6 @@
 void print_array(int *a, int n)
 {
 	int i;
-	int nul = 0;
 
 	if (n >= 0)
 	{
