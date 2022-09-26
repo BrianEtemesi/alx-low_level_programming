@@ -9,10 +9,11 @@ void print_array(int *, int);
  */
 int main(void)
 {
-	int array[5] = {
-		-198, 298, 402, -1024, 98
+	int array[1] = {
+		98
 	};
 
-	print_array(array, 5);
+	print_array(array, 0);
+	print_array(array, -1);
 	return (0);
 }
