@@ -3,12 +3,13 @@
 /**
  * print_array - prints elements of an array of integers
  * @a: array to be considered
- * @n: number of elements to be printed
+ * @n: number of elements of the array to be printed
+ *
  */
 
 void print_array(int *a, int n)
 {
-	int i;
+	int i = 0;
 
 	while (i < n)
 	{
