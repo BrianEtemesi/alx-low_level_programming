@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-    print_strings(", ", 2, NULL, "Django");
+    print_strings(NULL, 3, NULL, "Django", "unchained");
     return (0);
 }
