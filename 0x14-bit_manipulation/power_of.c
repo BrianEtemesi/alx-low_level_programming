@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
  * _pow - powers a base number by the second argument
@@ -13,9 +13,16 @@ int _pow(int a, int b)
 
 	while (b)
 	{
-		res = a * a;
+		res = res * a;
 		b--;
 	}
 
 	return (res);
+}
+
+int main(void)
+{
+	printf("5^0 = %d\n", _pow(5, 0));
+	
+	return (0);
 }
