@@ -35,13 +35,17 @@ int get_bit(unsigned long int n, unsigned int index)
 		i++;
 	}
 	if (index > size)
+	{
 		return (-1);
+	}
+	else
+	{
+		j = size - index - 1;
+		if (arr[j] == '1')
+			return (1);
+		return (0);
+	}
 
-	j = size - index - 1;
-
-	if (arr[j] == '1')
-		return (1);
-	return (0);
 }
 
 /**
