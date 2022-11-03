@@ -1,70 +1,20 @@
 #include "main.h"
 
 /**
- * get_bit - returns value of bit at given index
- * @n: decimal value
- * @index: index of bit in the binary value
- * Return: value of bit at index, -1 if failed
+ * get_bit - Returns a value at a given index
+ * @n: Number to check the value of
+ * @index: The index to look for the number
+ * Return: A value at a given index or -1 if an error occours
  */
 
 int get_bit(unsigned long int n, unsigned int index)
 {
-	int rem;
-	unsigned int size;
-	char *arr;
-	int j, i = 0;
+	unsigned int i;
 
-	size = get_size(n);
-
-	arr = malloc(sizeof(char) * size);
-	if (arr == NULL)
+	if (index > (sizeof(8) * 8))
 		return (-1);
 
-	while (n && n != 0)
-	{
-		rem = n % 2;
-		if (rem == 1)
-		{
-			arr[i] = '1';
-		}
-		else
-		{
-			arr[i] = '0';
-		}
-		n = n / 2;
-		i++;
-	}
-	if (index > 64)
-	{
-		return (-1);
-		exit(0);
-	}
-	else
-	{
-		j = size - index - 1;
-		if (arr[j] == '1')
-			return (1);
-		return (0);
-	}
-
+	for (i = 0; i < index; i++)
+		n = n >> 1;
+	return ((n & 1));
 }
-
-/**
- * get_size - gets the number of bits in the binary format
- * @n: decimal to be converted to binary
- * Return: number of bits
- */
-
-int get_size(unsigned long int n)
-{
-	int i = 0;
-
-	while (n != 0)
-	{
-		n = n / 2;
-		i++;
-	}
-
-	return (i);
-}
-
