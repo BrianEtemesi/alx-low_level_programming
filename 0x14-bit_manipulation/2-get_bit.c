@@ -10,9 +10,9 @@
 int get_bit(unsigned long int n, unsigned int index)
 {
 	int rem;
-	int size, i = 0;
+	unsigned int size;
 	char *arr;
-	int j;
+	int j, i = 0;
 
 	size = get_size(n);
 
@@ -34,6 +34,8 @@ int get_bit(unsigned long int n, unsigned int index)
 		n = n / 2;
 		i++;
 	}
+	if (index > size)
+		return (-1);
 
 	j = size - index - 1;
 
