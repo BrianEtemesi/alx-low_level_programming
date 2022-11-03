@@ -10,12 +10,54 @@
 int get_bit(unsigned long int n, unsigned int index)
 {
 	int rem;
-	int i;
-	int *arr;
+	int size, i = 0;
+	char *arr;
+	int j;
 
-	arr = malloc(sizeof(int));
-	if (arr = NULL)
-		return (NULL);
+	size = get_size(n);
 
+	arr = malloc(sizeof(char) * size);
+	if (arr == NULL)
+		return (-1);
 
+	while (n && n != 0)
+	{
+		rem = n % 2;
+		if (rem == 1)
+		{
+			arr[i] = '1';
+		}
+		else
+		{
+			arr[i] = '0';
+		}
+		n = n / 2;
+		i++;
+	}
+
+	j = size - index - 1;
+
+	if (arr[j] == '1')
+		return (1);
+	return (0);
 }
+
+/**
+ * get_size - gets the number of bits in the binary format
+ * @n: decimal to be converted to binary
+ * Return: number of bits
+ */
+
+int get_size(unsigned long int n)
+{
+	int i = 0;
+
+	while (n != 0)
+	{
+		n = n / 2;
+		i++;
+	}
+
+	return (i);
+}
+
