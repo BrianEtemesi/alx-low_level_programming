@@ -37,6 +37,7 @@ int get_bit(unsigned long int n, unsigned int index)
 	if (index >= size)
 	{
 		return (-1);
+		exit(0);
 	}
 	else
 	{
