@@ -33,11 +33,11 @@ int _cp(const char *file_from, const char *file_to)
 	ssize_t fd1, fd2, wr, r, c1, c2;
 	char *buf;
 
-	buf = malloc(sizeof(char) * INT_MAX);
+	buf = malloc(sizeof(char) * 1024);
 	if (buf == NULL)
 		dprintf(STDOUT_FILENO, "failed to allocate memory\n");
 	fd1 = open(file_from, O_RDONLY);
-	r = read(fd1, buf, INT_MAX);
+	r = read(fd1, buf, 1024);
 	if (fd1 < 0 || r < 0)
 	{
 		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", file_from);
@@ -49,7 +49,7 @@ int _cp(const char *file_from, const char *file_to)
 		dprintf(STDOUT_FILENO, "Error: Can't close fd %ld\n", fd1);
 		exit(100);
 	}
-	fd2 = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
+	fd2 = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	wr = write(fd2, buf, r);
 	if (fd2 < 0 || wr < 0)
 	{
