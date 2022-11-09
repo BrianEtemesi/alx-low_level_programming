@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 
 int _cp(const char *file_from, const char *file_to)
 {
-	ssize_t fd1, fd2, wr, c1, c2;
+	ssize_t fd1, fd2, wr, r, c1, c2;
 	char *buf;
 
 	buf = malloc(sizeof(char) * 1024);
@@ -40,26 +40,26 @@ int _cp(const char *file_from, const char *file_to)
 	r = read(fd1, buf, 1024);
 	if (fd1 < 0 || r < 0)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 	c1 = close(fd1);
 	if (c1 < 0)
 	{
-		dprintf("Error: Can't close fd %d\n", fd1);
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %ld\n", fd1);
 		exit(100);
 	}
 	fd2 = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
 	wr = write(fd2, buf, r);
 	if (fd2 < 0 || wr < 0)
 	{
-		dprint(STDOUT_FILENO, "Error: Can't write to %s\n", argv[2]);
+		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 	c2 = close(fd2);
 	if (c2 < 0)
 	{
-		dprintf("Error: Can't close fd %d\n", fd2);
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %ld\n", fd2);
 		exit(100);
 	}
 	free(buf);
