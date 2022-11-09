@@ -33,11 +33,11 @@ int _cp(const char *file_from, const char *file_to)
 	ssize_t fd1, fd2, wr, r, c1, c2;
 	char *buf;
 
-	buf = malloc(sizeof(char) * 1024);
+	buf = malloc(sizeof(char) * 2000);
 	if (buf == NULL)
 		dprintf(STDOUT_FILENO, "failed to allocate memory\n");
 	fd1 = open(file_from, O_RDONLY);
-	r = read(fd1, buf, 1024);
+	r = read(fd1, buf, 2000);
 	if (fd1 < 0 || r < 0)
 	{
 		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", file_from);
