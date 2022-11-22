@@ -7,18 +7,18 @@
 
 int main(void)
 {
-	long long int i, j, k, n;
+	long int i, j, k, n;
 
 
 	i = 1;
 	j = 2;
 
-	printf("%lld, %lld, ", i, j);
+	printf("%ld, %ld, ", i, j);
 
 	for (n = 0; n < 48; n++)
 	{
 		k = i + j;
-		printf("%lld", k);
+		printf("%ld", k);
 		if (n != 47)
 			printf(", ");
 		i = j;
