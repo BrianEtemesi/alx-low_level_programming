@@ -14,7 +14,7 @@ int main(void)
 	k = 0;
 	sum = 2;
 
-	while (k <= 100)
+	while (k <= 4000000)
 	{
 		if (k % 2 == 0)
 		{
