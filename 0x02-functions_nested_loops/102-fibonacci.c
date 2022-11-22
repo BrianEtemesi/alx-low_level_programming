@@ -11,7 +11,7 @@ int main(void)
 
 	i = 1;
 	j = 2;
-	
+
 	printf("%d, %d, ", i, j);
 
 	for (n = 0; n < 48; n++)
