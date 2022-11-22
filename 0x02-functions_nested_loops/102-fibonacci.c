@@ -17,7 +17,9 @@ int main(void)
 	for (n = 0; n < 48; n++)
 	{
 		k = i + j;
-		printf("%d, ", k);
+		printf("%d", k);
+		if (n != 47)
+			printf(", ");
 		i = j;
 		j = k;
 	}
