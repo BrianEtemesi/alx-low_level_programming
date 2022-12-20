@@ -12,7 +12,6 @@ dlistint_t *createNode(const int n)
 
 	if (newNode == NULL)
 	{
-		dprintf(2, "Error: Can't malloc\n");
 		return (NULL);
 	}
 
