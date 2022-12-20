@@ -19,22 +19,17 @@ dlistint_t *createNode(const int n)
 
 	return (newNode);
 }
-
 /**
- * add_dnodeint - adds node at the beginning of list
- * @head: pointer to head node
+ * add_dnodeint_end - adds node at the end of a linked list
+ * @head: pointer to address of head node
  * @n: data value
  * Return: address of new element
  */
 
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
-	dlistint_t *newNode;
-
-	if (head == NULL)
-		return (NULL);
-
-	newNode = createNode(n);
+	dlistint_t *temp = *head;
+	dlistint_t *newNode = createNode(n);
 
 	if ((*head) == NULL)
 	{
@@ -42,9 +37,13 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 		return (newNode);
 	}
 
-	(*head)->prev = newNode;
-	newNode->next = (*head);
-	(*head) = newNode;
+	while (temp->next != NULL)
+	{
+		temp = temp->next;
+	}
+
+	temp->next = newNode;
+	newNode->prev = temp;
 
 	return (newNode);
 }
