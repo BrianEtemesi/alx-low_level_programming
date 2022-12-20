@@ -1,0 +1,47 @@
+#include "lists.h"
+
+/**
+ * createNode - creates new node
+ * @n: data value
+ * Return: pointer to newly created node
+ */
+
+dlistint_t *createNode(const int n)
+{
+	dlistint_t *newNode = malloc(sizeof(dlistint_t));
+
+	if (newNode == NULL)
+	{
+		dprintf(2, "Error: Can't malloc\n");
+		return (NULL);
+	}
+
+	newNode->n = n;
+	newNode->prev = NULL;
+	newNode->next = NULL;
+
+	return (newNode);
+}
+/**
+ * add_dnodeint - adds node at the beginning of list
+ * @head: pointer to head node
+ * @n: data value
+ * Return: address of new element
+ */
+
+dlistint_t *add_dnodeint(dlistint_t **head, const int n)
+{
+	dlistint_t *newNode = createNode(n);
+
+	if ((*head) == NULL)
+	{
+		(*head) = newNode;
+		return (newNode);
+	}
+
+	(*head)->prev = newNode;
+	newNode->next = (*head);
+	(*head) = newNode;
+
+	return (newNode);
+}
