@@ -35,6 +35,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	printf("length of list: %ld\n", len);
 	printf("node data: %d\n", n);
+	printf("temp value: %d\n", temp->n);
 	if (idx > len)
 		return (NULL);
 
