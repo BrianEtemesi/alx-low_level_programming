@@ -27,13 +27,13 @@ size_t getlen(dlistint_t *h)
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *prevNode, *nextNode, *temp = *head;
-	size_t i = 0;
+	size_t len, i = 0;
 
 	if (temp == NULL)
 		return (-1);
-	/* len = getlen(temp); */
-	/* if (index > len) */
-		/* return (-1); */
+	len = getlen(temp);
+	if (index > len)
+		return (-1);
 	if (index == 0)
 	{
 		if (temp->next == NULL)
