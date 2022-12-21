@@ -9,7 +9,7 @@
 size_t getlen(dlistint_t *h)
 {
 	size_t i = 0;
-	
+
 	if (h == NULL)
 		return (i);
 	while (h != NULL)
@@ -31,27 +31,39 @@ size_t getlen(dlistint_t *h)
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *temp = *h;
-	dlistint_t *newNode;
+	dlistint_t *prevNode, *newNode;
 	size_t len = getlen(temp);
+	size_t i = 0;
 
-	printf("length of list: %ld\n", len);
-	printf("node data: %d\n", n);
 	if (idx > len)
 		return (NULL);
 
 	if ((temp == NULL) && (idx == 0))
 	{
-		printf("list is empty\n");
 		newNode = add_dnodeint(h, n);
 		return (newNode);
 	}
 	if (idx == len)
 	{
-		printf("insert at end of list\n");
 		newNode = add_dnodeint_end(h, n);
 		return (newNode);
 	}
-	return (temp);
+	while (i < idx)
+	{
+		temp = temp->next;
+		i++;
+	}
+	prevNode = temp->prev;
 
+	newNode = malloc(sizeof(dlistint_t));
+	if (newNode == NULL)
+		return (NULL);
+	newNode->n = n;
+	prevNode->next = newNode;
+	newNode->prev = prevNode;
+	newNode->next = temp;
+	temp->prev = newNode;
+
+	return (newNode);
 
 }
