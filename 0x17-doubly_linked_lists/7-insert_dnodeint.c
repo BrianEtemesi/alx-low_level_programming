@@ -45,6 +45,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		newNode = add_dnodeint(h, n);
 		return (newNode);
 	}
+	if (idx == len)
+	{
+		printf("insert at end of list\n");
+		newNode = add_dnodeint_end(h, n);
+		return (newNode);
+	}
 	return (temp);
 
 
