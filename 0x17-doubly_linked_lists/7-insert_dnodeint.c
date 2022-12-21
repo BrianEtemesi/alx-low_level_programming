@@ -31,14 +31,20 @@ size_t getlen(dlistint_t *h)
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *temp = *h;
+	dlistint_t *newNode;
 	size_t len = getlen(temp);
 
 	printf("length of list: %ld\n", len);
 	printf("node data: %d\n", n);
-	printf("temp value: %d\n", temp->n);
 	if (idx > len)
 		return (NULL);
 
+	if ((temp == NULL) && (idx == 0))
+	{
+		printf("list is empty\n");
+		newNode = add_dnodeint(h, n);
+		return (newNode);
+	}
 	return (temp);
 
 
