@@ -28,19 +28,25 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	size = ht->size;
 	index = key_index((const unsigned char *)key, size);
 	/* go to index of the array and check for collision */
-	/* if no collision; save key value pair at index */
 	if (ht->array[index] == NULL)
 	{
 		ht->array[index] = newnode;
 	}
-	/* if theres a collision, stack new node at the beginning of the list */
 	else
 	{
-		/* save node at index to temp */
 		temp = ht->array[index];
-		/* assign newnode to index */
+		while (temp)
+		{
+			if (strcmp(temp->key, key) == 0)
+			{
+				temp->value = value1;
+				return (1);
+			}
+			temp = temp->next;
+		}
+
+		temp = ht->array[index];
 		ht->array[index] = newnode;
-		/* assign temp to newnode next */
 		newnode->next = temp;
 	}
 	return (1);
