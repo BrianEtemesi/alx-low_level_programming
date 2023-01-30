@@ -15,7 +15,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	char *value1 = (char *)value;
 
 	/* check if key is an empty string */
-	if (strlen(key) == 0)
+	if (strlen(key) == 0 || key == NULL)
 		exit(0);
 	/* create new node and assign key and value */
 	newnode = malloc(sizeof(hash_node_t));
