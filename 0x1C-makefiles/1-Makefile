@@ -1,0 +1,10 @@
+# builds executable `school` using variables
+
+CC = gcc
+SRC = $(wildcard *.c)
+EXEC = school
+
+all: $(EXEC)
+
+$(EXEC): $(SRC)
+	$(CC) $(SRC) -o $(EXEC)
