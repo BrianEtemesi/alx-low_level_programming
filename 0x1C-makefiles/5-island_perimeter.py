@@ -9,18 +9,22 @@ def island_perimeter(grid):
     """
     calculates the perimeter of a grid
     """
-    height = 0
-    width = 0
+    perimeter = 0
+    nrows = len(grid)
 
-    for line in grid:
-        if 1 in line:
-            _sum = 0
-            height += 1
-            for i in line:
-                if i == 1:
-                    _sum += 1
-            if _sum > width:
-                width = _sum
+    if grid != []:
+        ncolumns = len(grid[0])
 
-    perimeter = (height + width) * 2
+    for a in range(nrows):
+        for b in range(ncolumns):
+            if grid[a][b] == 1:
+                if (a - 1) == -1 or grid[a - 1][b] == 0:
+                    perimeter += 1
+                if (a + 1) == nrows or grid[a + 1][b] == 0:
+                    perimeter += 1
+                if (b - 1) == -1 or grid[a][b - 1] == 0:
+                    perimeter += 1
+                if (b + 1) == ncolumns or grid[a][b + 1] == 0:
+                    perimeter += 1
+
     return perimeter
