@@ -2,9 +2,6 @@
 
 CC = gcc
 SRC = $(wildcard *.c)
-EXEC = school
 
-all: $(EXEC)
-
-$(EXEC): $(SRC)
-	$(CC) $(SRC) -o $(EXEC)
+all:
+	$(CC) $(SRC) -o school
